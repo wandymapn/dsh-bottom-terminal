@@ -6,17 +6,26 @@ Bottom terminal panel for the DeepSeek Harness (DSH) Web GUI — an interactive 
 
 ## Install
 
+From npm (once published):
+
 ```sh
 dsh plugin --profile web add dsh-bottom-terminal && dsh web
 ```
 
+From GitHub (before npm publish):
+
+```sh
+dsh plugin --profile web add git+https://github.com/wandymapn/dsh-bottom-terminal.git && dsh web
+```
+
 > Note: this is a DSH (DeepSeek Harness) plugin — do **not** use plain `npm i dsh-bottom-terminal`; it must be installed through `dsh plugin` to activate.
+> On Windows, approve the `node-pty` build when prompted (or set `allowBuilds: { node-pty: true }` in your profile's `pnpm-workspace.yaml`).
 
 ## Screenshots
 
 | Collapsed | Expanded | Multi-tab |
 |---|---|---|
-| ![collapsed](https://raw.githubusercontent.com/siberiah2o/dsh-bottom-terminal/main/docs/screenshot-collapsed.png) | ![panel](https://raw.githubusercontent.com/siberiah2o/dsh-bottom-terminal/main/docs/screenshot-panel.png) | ![multitab](https://raw.githubusercontent.com/siberiah2o/dsh-bottom-terminal/main/docs/screenshot-multitab.png) |
+| ![collapsed](https://raw.githubusercontent.com/wandymapn/dsh-bottom-terminal/main/docs/screenshot-collapsed.png) | ![panel](https://raw.githubusercontent.com/wandymapn/dsh-bottom-terminal/main/docs/screenshot-panel.png) | ![multitab](https://raw.githubusercontent.com/wandymapn/dsh-bottom-terminal/main/docs/screenshot-multitab.png) |
 
 ## Features
 
