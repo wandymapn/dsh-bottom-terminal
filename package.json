@@ -35,13 +35,7 @@
     "ws": "^8.21.3"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-settings": ">=0.1.0-rc.1",
     "@deepseek-ai/schemastery": ">=3.18.1"
-  },
-  "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-settings": {
-      "optional": true
-    }
   },
   "repository": {
     "type": "git",
