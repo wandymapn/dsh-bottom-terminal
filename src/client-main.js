@@ -443,9 +443,9 @@ function TerminalPanel(props) {
   const [activeId, setActiveId] = useState(null);
   const [busy, setBusy] = useState(false);
   /** panel toggle shortcut, parsed from the host /config response */
-  const DEFAULT_SHORTCUT = parseShortcut("ctrl+`");
+  const DEFAULT_SHORTCUT = parseShortcut("ctrl+shift+`");
   const [shortcut, setShortcut] = useState(DEFAULT_SHORTCUT);
-  const shortcutLabel = shortcut?.label ?? "Ctrl+`";
+  const shortcutLabel = shortcut?.label ?? "Ctrl+Shift+`";
 
   const [height, setHeight] = useState(() => {
     try {

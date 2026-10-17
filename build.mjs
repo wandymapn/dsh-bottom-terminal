@@ -52,7 +52,7 @@ const factoryBody = [
   "      });",
   "    }",
   "    var onKey = function (e) {",
-  "      if (e.code !== 'Backquote' || !e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) return;",
+  "      if (e.code !== 'Backquote' || !e.ctrlKey || !e.shiftKey || e.altKey || e.metaKey) return;",
   "      if (e.target instanceof HTMLElement && e.target.closest('.dshTermPane') !== null) return;",
   "      e.preventDefault();",
   "      if (__invokeToggle) __invokeToggle();",
