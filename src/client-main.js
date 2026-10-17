@@ -785,39 +785,7 @@ function TerminalPanel(props) {
               : null,
           ),
         )
-      : React.createElement(
-          "div",
-          {
-            className: "dshTermBar",
-            role: "button",
-            tabIndex: 0,
-            "aria-expanded": open,
-            "aria-controls": "dshTermPanel",
-            title: "终端面板（" + shortcutLabel + " 切换）",
-            onClick: toggle,
-            onKeyDown: (e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                toggle();
-              }
-            },
-          },
-          React.createElement("span", { className: "dshTermBarLead", "aria-hidden": true }, TerminalGlyph14()),
-          React.createElement("span", { className: "dshTermBarTitle" }, "终端" + (tabs.length > 1 ? " · " + tabs.length : "")),
-          React.createElement("span", { className: "dshTermBarState" }, stateLabel),
-          React.createElement(
-            "span",
-            { className: "dshTermBarActions", onClick: (e) => e.stopPropagation() },
-            active !== null
-              ? React.createElement(
-                  "button",
-                  { className: "dshTermBarAction", title: active.exited ? "重启进程（保留标签位）" : "重启当前会话", "aria-label": "重启当前会话", disabled: busy, onClick: restartActive },
-                  Refresh14(),
-                )
-              : null,
-          ),
-          React.createElement("span", { className: "dshTermBarChevron", "aria-hidden": true }, ChevronUp14()),
-        ),
+      : null,
   );
 }
 /* Top-right header toggle button for the bottom terminal. */
