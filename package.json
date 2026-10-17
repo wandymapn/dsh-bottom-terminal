@@ -35,13 +35,17 @@
     "ws": "^8.21.3"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-settings": "^0.1.0-rc.7",
-    "@deepseek-ai/schemastery": "^3.18.1"
+    "@deepseek-ai/dsh-settings": ">=0.1.0-rc.1",
+    "@deepseek-ai/schemastery": ">=3.18.1"
   },
-  "license": "MIT",
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-settings": {
+      "optional": true
+    }
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/siberiah2o/dsh-bottom-terminal.git"
+    "url": "git+https://github.com/wandymapn/dsh-bottom-terminal.git"
   },
   "keywords": [
     "dsh",
