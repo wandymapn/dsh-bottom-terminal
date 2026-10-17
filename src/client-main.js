@@ -577,18 +577,8 @@ function TerminalPanel(props) {
    * shortcut is a control character the terminal also consumes (Ctrl+J is
    * the shell's line feed), a press with focus inside a terminal pane is
    * left to the shell instead of toggling the panel. */
-  useEffect(() => {
-    const onKey = (e) => {
-      if (!matchesShortcut(shortcut, e)) return;
-      if (e.target instanceof HTMLElement && e.target.closest(".dshTermPane") !== null) return;
-      e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
-      setOpen((v) => !v);
-    };
-    document.addEventListener("keydown", onKey, true);
-    return () => document.removeEventListener("keydown", onKey, true);
-  }, [shortcut]);
+  /* Toggle shortcut is registered through DSH's shortcuts system (see build.mjs)
+   * so it does not conflict with the built-in sidebar terminal's Ctrl+`. */
 
   const onExit = useCallback((id) => {
     setTabs((cur) => cur.map((t) => (t.id === id ? { ...t, exited: true } : t)));
@@ -821,4 +811,4 @@ function TerminalToggleButton(props) {
   );
 }
 
-export { TerminalPanel, TerminalToggleButton };
+export { TerminalPanel, TerminalToggleButton, invokeTerminalToggle };
