@@ -582,10 +582,12 @@ function TerminalPanel(props) {
       if (!matchesShortcut(shortcut, e)) return;
       if (e.target instanceof HTMLElement && e.target.closest(".dshTermPane") !== null) return;
       e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
       setOpen((v) => !v);
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
   }, [shortcut]);
 
   const onExit = useCallback((id) => {
