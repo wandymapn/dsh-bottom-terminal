@@ -674,10 +674,10 @@ function TerminalPanel(props) {
   const toggle = useCallback(() => setOpen((v) => !v), []);
 
   const stateLabel = busy
-    ? "启动中…"
+    ? "Starting…"
     : active === null
-      ? tabs.length === 0 ? "无会话" : "空闲"
-      : active.exited ? tabLabel(active) + " 已退出，点 ⟳ 重启" : tabLabel(active);
+      ? tabs.length === 0 ? "No sessions" : "Idle"
+      : active.exited ? tabLabel(active) + " exited, click ⟳ to restart" : tabLabel(active);
 
   return React.createElement(
     "div",
@@ -688,7 +688,7 @@ function TerminalPanel(props) {
           { className: "dshTermPanel", id: "dshTermPanel", style: { height: height + "px" } },
           React.createElement("div", {
             className: "dshTermResize",
-            title: "拖动调整高度",
+            title: "Drag to resize",
             onPointerDown: startResize,
           }),
           /* single merged header row: lead + scrollable tabs + new + state + restart + collapse */
@@ -707,7 +707,7 @@ function TerminalPanel(props) {
                     role: "tab",
                     "aria-selected": t.id === activeId,
                     className: "dshTermTab" + (t.id === activeId ? " isActive" : "") + (t.exited ? " isExited" : ""),
-                    title: t.exited ? tabLabel(t) + " (已退出)" : tabLabel(t),
+                    title: t.exited ? tabLabel(t) + " (exited)" : tabLabel(t),
                     onClick: () => setActiveId(t.id),
                   },
                   React.createElement("span", { className: "dshTermTabLead", "aria-hidden": true }, TerminalGlyph12()),
@@ -717,7 +717,7 @@ function TerminalPanel(props) {
                     {
                       className: "dshTermTabClose",
                       role: "button",
-                      title: "关闭 " + tabLabel(t),
+                      title: "Close " + tabLabel(t),
                       onClick: (e) => {
                         e.stopPropagation();
                         closeTab(t.id);
@@ -732,8 +732,8 @@ function TerminalPanel(props) {
               "button",
               {
                 className: "dshTermNew",
-                title: "新建终端",
-                "aria-label": "新建终端",
+                title: "New terminal",
+                "aria-label": "New terminal",
                 disabled: busy,
                 onClick: newTab,
               },
@@ -744,7 +744,7 @@ function TerminalPanel(props) {
             active !== null
               ? React.createElement(
                   "button",
-                  { className: "dshTermBarAction", title: active.exited ? "重启进程（保留标签位）" : "重启当前会话", "aria-label": "重启当前会话", disabled: busy, onClick: restartActive },
+                  { className: "dshTermBarAction", title: active.exited ? "Restart process (keep tab)" : "Restart current session", "aria-label": "Restart current session", disabled: busy, onClick: restartActive },
                   Refresh14(),
                 )
               : null,
@@ -752,8 +752,8 @@ function TerminalPanel(props) {
               "button",
               {
                 className: "dshTermCollapse",
-                title: "收起面板（" + shortcutLabel + "）",
-                "aria-label": "收起面板",
+                title: "Collapse panel (" + shortcutLabel + "）",
+                "aria-label": "Collapse panel",
                 onClick: toggle,
               },
               ChevronDown14(),
@@ -774,12 +774,12 @@ function TerminalPanel(props) {
               ? React.createElement(
                   "div",
                   { className: "dshTermEmpty" },
-                  React.createElement("span", null, "没有终端会话"),
+                  React.createElement("span", null, "No terminal sessions"),
                   React.createElement(
                     "button",
                     { className: "dshTermEmptyBtn", onClick: newTab },
                     Plus12(),
-                    "新建终端",
+                    "New terminal",
                   ),
                 )
               : null,
